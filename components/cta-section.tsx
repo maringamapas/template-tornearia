@@ -3,6 +3,7 @@
 import { Phone, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useRef, useState } from "react"
+import { SITE_CONFIG } from "@/src/config/site-config"
 
 export function CTASection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -31,18 +32,16 @@ export function CTASection() {
       <div className="relative mx-auto max-w-4xl px-4 text-center lg:px-8">
         <h2 className="font-display text-3xl font-bold text-primary-foreground md:text-5xl animate-slide-up">
           <span className="text-balance">
-            Pronto para dar forma ao seu projeto?
+            {SITE_CONFIG.cta.title}
           </span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/90 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          Entre em contato agora e receba um orçamento personalizado para suas
-          peças. Nossa equipe está pronta para transformar suas ideias em
-          realidade.
+          {SITE_CONFIG.cta.description}
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-scale-in" style={{ animationDelay: '0.4s' }}>
           <a
-            href="https://wa.me/5544999324635?text=Olá! Gostaria de solicitar um orçamento de site."
+            href={SITE_CONFIG.hero.ctaLink}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -53,23 +52,23 @@ export function CTASection() {
               }`}
             >
               <MessageCircle className="h-5 w-5" />
-              Chamar no WhatsApp
+              {SITE_CONFIG.cta.primaryButton}
             </Button>
           </a>
-          <a href="tel:+5544999324635">
+          <a href={`tel:+55${SITE_CONFIG.contact.phoneRaw}`}>
             <Button
               size="lg"
               variant="outline"
               className="gap-2 border-primary-foreground/30 px-10 text-lg text-primary-foreground hover:bg-primary-foreground/10 bg-transparent hover:scale-110 transition-all duration-500 rounded-full backdrop-blur-sm"
             >
               <Phone className="h-5 w-5" />
-              (44) 99932-4635
+              {SITE_CONFIG.cta.secondaryButton}
             </Button>
           </a>
         </div>
 
         <p className="mt-6 text-sm text-primary-foreground/80 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          Resposta em menos de 24h. Orçamento sem compromisso.
+          {SITE_CONFIG.cta.footnote}
         </p>
       </div>
     </section>

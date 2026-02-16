@@ -1,4 +1,5 @@
 import { MapPin, Mail, Phone, ArrowRight, Instagram, Facebook, Twitter, Linkedin } from "lucide-react"
+import { SITE_CONFIG } from "@/src/config/site-config"
 
 export function ContactFooter() {
   return (
@@ -13,41 +14,41 @@ export function ContactFooter() {
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-12 w-12 rounded-full bg-white/10 ring-1 ring-white/20 flex items-center justify-center">
-                    <span className="text-xl font-bold text-white">P</span>
+                    <span className="text-xl font-bold text-white">{SITE_CONFIG.client.shortName[0]}</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium text-white tracking-tight">Prime Tornearia</h3>
-                    <p className="text-white/60 text-sm">Precisão e qualidade em usinagem</p>
+                    <h3 className="text-xl font-medium text-white tracking-tight">{SITE_CONFIG.client.name}</h3>
+                    <p className="text-white/60 text-sm">{SITE_CONFIG.footer.description}</p>
                   </div>
                 </div>
 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
                     <MapPin className="h-4 w-4 text-white/60" strokeWidth={1.5} />
-                    <span className="text-white/80 text-sm">Maringá, PR • Região Metropolitana</span>
+                    <span className="text-white/80 text-sm">{SITE_CONFIG.contact.address}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-4 w-4 text-white/60" strokeWidth={1.5} />
-                    <a href="mailto:contato@primetornearia.com.br" className="text-white/80 hover:text-white transition-colors text-sm">
-                      contato@primetornearia.com.br
+                    <a href={`mailto:${SITE_CONFIG.contact.email}`} className="text-white/80 hover:text-white transition-colors text-sm">
+                      {SITE_CONFIG.contact.email}
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="h-4 w-4 text-white/60" strokeWidth={1.5} />
-                    <a href="tel:+5544999324635" className="text-white/80 hover:text-white transition-colors text-sm">
-                      (44) 99932-4635
+                    <a href={`tel:+55${SITE_CONFIG.contact.phoneRaw}`} className="text-white/80 hover:text-white transition-colors text-sm">
+                      {SITE_CONFIG.contact.phone}
                     </a>
                   </div>
                 </div>
 
                 {/* CTA Button */}
                 <a 
-                  href="https://wa.me/5544999324635" 
+                  href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
-                  Solicite um Orçamento
+                  {SITE_CONFIG.nav.ctaText}
                   <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
                 </a>
               </div>
@@ -59,26 +60,13 @@ export function ContactFooter() {
                   <div>
                     <h4 className="text-white font-medium mb-4">Serviços</h4>
                     <ul className="space-y-2">
-                      <li>
-                        <a href="#servicos" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Tornearia CNC
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#servicos" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Usinagem
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#servicos" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Fresamento
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#servicos" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Projetos Sob Medida
-                        </a>
-                      </li>
+                      {SITE_CONFIG.footer.services.map((service) => (
+                        <li key={service}>
+                          <a href="#servicos" className="text-white/60 hover:text-white transition-colors text-sm">
+                            {service}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </div>
 
@@ -86,26 +74,13 @@ export function ContactFooter() {
                   <div>
                     <h4 className="text-white font-medium mb-4">Links Rápidos</h4>
                     <ul className="space-y-2">
-                      <li>
-                        <a href="#inicio" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Início
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#sobre" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Sobre Nós
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#diferenciais" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Diferenciais
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#contato" className="text-white/60 hover:text-white transition-colors text-sm">
-                          Contato
-                        </a>
-                      </li>
+                      {SITE_CONFIG.footer.quickLinks.map((link) => (
+                        <li key={link.href}>
+                          <a href={link.href} className="text-white/60 hover:text-white transition-colors text-sm">
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -115,28 +90,28 @@ export function ContactFooter() {
                   <h4 className="text-white font-medium mb-4">Redes Sociais</h4>
                   <div className="flex gap-3">
                     <a 
-                      href="#" 
+                      href={SITE_CONFIG.social.instagram} 
                       className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 ring-1 ring-white/20 text-white/80 hover:text-white hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-400 transition-all duration-300 hover:scale-110 hover:rotate-12"
                       aria-label="Instagram"
                     >
                       <Instagram className="h-4 w-4" strokeWidth={1.5} />
                     </a>
                     <a 
-                      href="#" 
+                      href={SITE_CONFIG.social.facebook} 
                       className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 ring-1 ring-white/20 text-white/80 hover:text-white hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-400 transition-all duration-300 hover:scale-110 hover:rotate-12"
                       aria-label="Facebook"
                     >
                       <Facebook className="h-4 w-4" strokeWidth={1.5} />
                     </a>
                     <a 
-                      href="#" 
+                      href={SITE_CONFIG.social.twitter} 
                       className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 ring-1 ring-white/20 text-white/80 hover:text-white hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-400 transition-all duration-300 hover:scale-110 hover:rotate-12"
                       aria-label="Twitter"
                     >
                       <Twitter className="h-4 w-4" strokeWidth={1.5} />
                     </a>
                     <a 
-                      href="#" 
+                      href={SITE_CONFIG.social.linkedin} 
                       className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 ring-1 ring-white/20 text-white/80 hover:text-white hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-400 transition-all duration-300 hover:scale-110 hover:rotate-12"
                       aria-label="LinkedIn"
                     >
@@ -152,21 +127,21 @@ export function ContactFooter() {
             {/* Bottom Bar */}
             <div className="border-t border-white/10 mt-10 pt-6 max-w-7xl mx-auto">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-white/50 text-xs">© 2025 Prime Tornearia. Todos os direitos reservados.</p>
+                <p className="text-white/50 text-xs">{SITE_CONFIG.footer.copyright}</p>
                 <div className="flex flex-col sm:flex-row items-center gap-6 text-xs">
-                  <a href="#" className="text-white/50 hover:text-white/80 transition-colors">
+                  <a href={SITE_CONFIG.footer.legal.privacy} className="text-white/50 hover:text-white/80 transition-colors">
                     Política de Privacidade
                   </a>
-                  <a href="#" className="text-white/50 hover:text-white/80 transition-colors">
+                  <a href={SITE_CONFIG.footer.legal.terms} className="text-white/50 hover:text-white/80 transition-colors">
                     Termos de Serviço
                   </a>
                   <a 
-                    href="https://webstudiomga.vercel.app/" 
+                    href={SITE_CONFIG.footer.madeBy.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-orange-500 hover:text-orange-400 transition-colors"
                   >
-                    WebStudio
+                    {SITE_CONFIG.footer.madeBy.text}
                   </a>
                 </div>
               </div>
