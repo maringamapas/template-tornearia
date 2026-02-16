@@ -3,16 +3,9 @@
 import { useState, useEffect } from "react"
 import { Menu, X, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { SITE_CONFIG } from "@/src/config/site-config"
 
-const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#diferenciais", label: "Diferenciais" },
-  { href: "#depoimentos", label: "Depoimentos" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contato", label: "Contato" },
-]
+const navLinks = SITE_CONFIG.nav.links
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -39,15 +32,15 @@ export function Header() {
           <a href="#inicio" className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary">
               <span className="font-display text-lg font-bold text-primary-foreground">
-                P
+                {SITE_CONFIG.client.shortName[0]}
               </span>
             </div>
             <div>
               <span className="font-display text-xl font-bold text-primary-foreground">
-                Prime
+                {SITE_CONFIG.client.shortName}
               </span>
               <span className="block text-xs uppercase tracking-widest text-primary-foreground/70">
-                Tornearia
+                {SITE_CONFIG.client.name.replace(SITE_CONFIG.client.shortName, '').trim()}
               </span>
             </div>
           </a>
@@ -66,13 +59,13 @@ export function Header() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="https://wa.me/5544999324635"
+              href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Button className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
                 <Phone className="h-4 w-4" />
-                Solicitar Orçamento
+                {SITE_CONFIG.nav.ctaText}
               </Button>
             </a>
           </div>
@@ -103,14 +96,14 @@ export function Header() {
               </a>
             ))}
             <a
-              href="https://wa.me/5544999324635"
+              href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4"
             >
               <Button className="w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
                 <Phone className="h-4 w-4" />
-                Solicitar Orçamento
+                {SITE_CONFIG.nav.ctaText}
               </Button>
             </a>
           </nav>

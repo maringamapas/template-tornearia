@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Archivo } from "next/font/google"
+import { SITE_CONFIG } from "@/src/config/site-config"
 
 import "./globals.css"
 
@@ -15,32 +16,30 @@ const archivo = Archivo({
 })
 
 export const metadata: Metadata = {
-  title: "Prime Tornearia | Usinagem de Precisão em Maringá - PR",
-  description:
-    "Serviços de tornearia, fresagem e usinagem CNC de alta precisão em Maringá - PR. Qualidade, agilidade e compromisso com prazos. Solicite seu orçamento!",
+  title: `${SITE_CONFIG.client.name} | ${SITE_CONFIG.hero.badge}`,
+  description: SITE_CONFIG.client.description,
+  keywords: SITE_CONFIG.seo.keywords,
   openGraph: {
-    title: "Prime Tornearia | Usinagem de Precisão em Maringá - PR",
-    description:
-      "Serviços de tornearia, fresagem e usinagem CNC de alta precisão em Maringá - PR. Qualidade, agilidade e compromisso com prazos. Solicite seu orçamento!",
+    title: `${SITE_CONFIG.client.name} | ${SITE_CONFIG.hero.badge}`,
+    description: SITE_CONFIG.client.description,
     type: "website",
-    url: "https://siteparatornearia.vercel.app",
-    siteName: "Prime Tornearia",
+    url: `https://${SITE_CONFIG.client.domain}`,
+    siteName: SITE_CONFIG.client.name,
     images: [
       {
-        url: "/og-image.jpg",
+        url: SITE_CONFIG.seo.ogImage,
         width: 1200,
         height: 630,
-        alt: "Prime Tornearia - Usinagem de Precisão",
+        alt: `${SITE_CONFIG.client.name} - ${SITE_CONFIG.footer.description}`,
         type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Tornearia | Usinagem de Precisão em Maringá - PR",
-    description:
-      "Serviços de tornearia, fresagem e usinagem CNC de alta precisão em Maringá - PR. Qualidade, agilidade e compromisso com prazos. Solicite seu orçamento!",
-    images: ["/og-image.jpg"],
+    title: `${SITE_CONFIG.client.name} | ${SITE_CONFIG.hero.badge}`,
+    description: SITE_CONFIG.client.description,
+    images: [SITE_CONFIG.seo.ogImage],
   },
 }
 
