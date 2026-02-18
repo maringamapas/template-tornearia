@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone, ArrowRight, Instagram, Facebook, Twitter, Linkedin } from "lucide-react"
+import { MapPin, Phone, ArrowRight, Instagram, Facebook, Twitter, Linkedin } from "lucide-react"
 import { SITE_CONFIG } from "@/src/config/site-config"
 
 export function ContactFooter() {
@@ -28,12 +28,6 @@ export function ContactFooter() {
                     <span className="text-white/80 text-sm">{SITE_CONFIG.contact.address}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail className="h-4 w-4 text-white/60" strokeWidth={1.5} />
-                    <a href={`mailto:${SITE_CONFIG.contact.email}`} className="text-white/80 hover:text-white transition-colors text-sm">
-                      {SITE_CONFIG.contact.email}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
                     <Phone className="h-4 w-4 text-white/60" strokeWidth={1.5} />
                     <a href={`tel:+55${SITE_CONFIG.contact.phoneRaw}`} className="text-white/80 hover:text-white transition-colors text-sm">
                       {SITE_CONFIG.contact.phone}
@@ -43,7 +37,7 @@ export function ContactFooter() {
 
                 {/* CTA Button */}
                 <a 
-                  href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`} 
+                  href={SITE_CONFIG.contact.whatsappLink} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"

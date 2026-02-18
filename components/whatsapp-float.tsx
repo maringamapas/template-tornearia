@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/src/config/site-config"
 export function WhatsAppFloat() {
   return (
     <a
-      href={SITE_CONFIG.hero.ctaLink}
+      href={SITE_CONFIG.contact.whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
       className="group fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#25d366] to-[#128c7e] text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:rotate-12 animate-pulse-slow hover:animate-none"
