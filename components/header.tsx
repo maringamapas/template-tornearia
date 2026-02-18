@@ -12,10 +12,17 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20)
+          ticking = false
+        })
+        ticking = true
+      }
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -63,7 +70,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 <Phone className="h-4 w-4" />
                 {SITE_CONFIG.nav.ctaText}
               </Button>
@@ -72,9 +79,11 @@ export function Header() {
 
           <button
             type="button"
-            className="rounded-md p-2 text-primary-foreground lg:hidden"
+            className="rounded-md p-2 text-primary-foreground lg:hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -82,8 +91,8 @@ export function Header() {
       </div>
 
       {isOpen && (
-        <div className="bg-accent/98 backdrop-blur-lg shadow-2xl lg:hidden animate-slide-up">
-          <nav className="flex flex-col px-4 pb-6">
+        <div className="bg-accent/98 backdrop-blur-lg shadow-2xl lg:hidden animate-slide-up" id="mobile-menu">
+          <nav className="flex flex-col px-4 pb-6" role="navigation" aria-label="Menu principal mobile">
             {navLinks.map((link, index) => (
               <a
                 key={link.href}
@@ -101,7 +110,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="mt-4"
             >
-              <Button className="w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button className="w-full gap-2 bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 <Phone className="h-4 w-4" />
                 {SITE_CONFIG.nav.ctaText}
               </Button>

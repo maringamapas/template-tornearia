@@ -10,6 +10,7 @@ export function CTASection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const currentRef = sectionRef.current
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -19,11 +20,16 @@ export function CTASection() {
       { threshold: 0.3 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
-    return () => observer.disconnect()
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef)
+      }
+      observer.disconnect()
+    }
   }, [])
 
   return (
@@ -35,7 +41,7 @@ export function CTASection() {
             {SITE_CONFIG.cta.title}
           </span>
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/90 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground animate-fade-in" style={{ animationDelay: '0.2s' }}>
           {SITE_CONFIG.cta.description}
         </p>
 
@@ -47,7 +53,7 @@ export function CTASection() {
           >
             <Button
               size="lg"
-              className={`gap-2 bg-accent px-10 text-lg text-accent-foreground hover:bg-accent/90 hover:scale-110 hover:shadow-2xl transition-all duration-500 rounded-full ${
+              className={`gap-2 bg-accent px-10 text-lg text-accent-foreground hover:bg-accent/90 hover:scale-110 hover:shadow-2xl transition-all duration-500 rounded-full focus-visible:ring-2 focus-visible:ring-accent-foreground focus-visible:ring-offset-2 ${
                 isVisible ? "scale-100" : "scale-95"
               }`}
             >
@@ -59,7 +65,7 @@ export function CTASection() {
             <Button
               size="lg"
               variant="outline"
-              className="gap-2 border-primary-foreground/30 px-10 text-lg text-primary-foreground hover:bg-primary-foreground/10 bg-transparent hover:scale-110 transition-all duration-500 rounded-full backdrop-blur-sm"
+              className="gap-2 border-primary-foreground/30 px-10 text-lg text-primary-foreground hover:bg-primary-foreground/10 bg-transparent hover:scale-110 transition-all duration-500 rounded-full backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2"
             >
               <Phone className="h-5 w-5" />
               {SITE_CONFIG.cta.secondaryButton}

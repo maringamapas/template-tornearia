@@ -55,7 +55,7 @@ export const SITE_CONFIG = {
 
   // Configurações de SEO (Essencial para o site aparecer no Google)
   seo: {
-    ogImage: "/images/og-image.jpg",
+    ogImage: "/images/og-images.jpg",
     keywords: ["tornearia", "usinagem CNC", "fresagem", "Maringá", "usinagem de precisão", "tornearia CNC"],
   },
 
