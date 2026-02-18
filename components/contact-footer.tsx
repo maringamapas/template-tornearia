@@ -46,7 +46,7 @@ export function ContactFooter() {
                   href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-400 hover:to-orange-300 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   {SITE_CONFIG.nav.ctaText}
                   <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
