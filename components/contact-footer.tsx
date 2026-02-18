@@ -126,22 +126,17 @@ export function ContactFooter() {
 
             {/* Bottom Bar */}
             <div className="border-t border-white/10 mt-10 pt-6 max-w-7xl mx-auto">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-white/50 text-xs">{SITE_CONFIG.footer.copyright}</p>
-                <div className="flex flex-col sm:flex-row items-center gap-6 text-xs">
-                  <a href={SITE_CONFIG.footer.legal.privacy} className="text-white/50 hover:text-white/80 transition-colors">
-                    Política de Privacidade
-                  </a>
-                  <a href={SITE_CONFIG.footer.legal.terms} className="text-white/50 hover:text-white/80 transition-colors">
-                    Termos de Serviço
-                  </a>
+              <div className="flex flex-col items-center justify-center gap-4">
+                <p className="text-white/50 text-xs text-center">{SITE_CONFIG.footer.copyright}</p>
+                <div className="flex items-center gap-1 text-xs justify-center">
+                  <span className="text-white/60">Criado por</span>
                   <a 
                     href={SITE_CONFIG.footer.madeBy.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-orange-500 hover:text-orange-400 transition-colors"
+                    className="text-orange-500 hover:text-orange-400 transition-colors font-medium"
                   >
-                    {SITE_CONFIG.footer.madeBy.text}
+                    WebStudio
                   </a>
                 </div>
               </div>
