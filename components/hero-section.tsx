@@ -10,7 +10,7 @@ export function HeroSection() {
         src={SITE_CONFIG.hero.heroImage}
         alt="Maquina de tornearia CNC em operacao com faiscas de precisao"
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+        sizes="100vw"
         className="object-cover"
         priority
       />
