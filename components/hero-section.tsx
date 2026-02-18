@@ -19,8 +19,8 @@ export function HeroSection() {
       <div className="relative z-10 flex min-h-screen items-center">
         <div className="mx-auto max-w-7xl px-4 py-32 lg:px-8">
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 animate-fade-in backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 animate-fade-in backdrop-blur-sm" role="status" aria-live="polite">
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" aria-hidden="true" />
               <span className="text-sm font-medium text-primary">
                 {SITE_CONFIG.hero.badge}
               </span>
@@ -33,7 +33,7 @@ export function HeroSection() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/80 md:text-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/90 md:text-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
               {SITE_CONFIG.hero.subtitle}
             </p>
 
@@ -45,7 +45,7 @@ export function HeroSection() {
               >
                 <Button
                   size="lg"
-                  className="gap-2 bg-gradient-to-r from-primary to-orange-400 px-8 text-primary-foreground hover:scale-105 hover:shadow-xl transition-all duration-300"
+                  className="gap-2 bg-gradient-to-r from-primary to-orange-400 px-8 text-primary-foreground hover:scale-105 hover:shadow-xl transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   <Phone className="h-5 w-5" />
                   {SITE_CONFIG.hero.ctaText}
@@ -54,7 +54,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="gap-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+                className="gap-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent hover:scale-105 transition-all duration-300 backdrop-blur-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 <span><strong>{SITE_CONFIG.hero.ctaSecondary}</strong></span>
                 <ArrowRight className="h-5 w-5" />

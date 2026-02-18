@@ -28,7 +28,7 @@ export function AboutSection() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="relative group">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-[1.02]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-[1.02]">
               <Image
                 src="/images/about-tornearia.jpg"
                 alt="Profissional da Prime Tornearia trabalhando em equipamento de usinagem"
