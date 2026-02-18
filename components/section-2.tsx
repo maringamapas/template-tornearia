@@ -248,7 +248,7 @@ export function Section2() {
               Converse com nosso time e descubra como um site profissional pode aumentar suas vendas.
             </p>
             <a
-              href={SITE_CONFIG.contact.whatsappLink}
+              href="https://wa.me/5544999324635?text=Quero%20um%20site%20assim!"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-orange-400 hover:from-orange-400 hover:to-primary text-primary-foreground font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl"

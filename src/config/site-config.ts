@@ -26,7 +26,7 @@ export const SITE_CONFIG = {
     highlight: "metal em solução",
     subtitle: "Tornearia, fresagem e usinagem CNC com qualidade superior, pontualidade na entrega e preços competitivos para sua indústria.",
     ctaText: "Fale Conosco pelo WhatsApp",
-    ctaLink: "https://wa.me/5544999324635?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20site.",
+    ctaLink: "https://wa.me/5544999324635?text=Olá! Gostaria de solicitar um orçamento.",
     ctaSecondary: "44 99932-4635",
     heroImage: "/images/hero-tornearia.jpg",
     stats: {
@@ -37,10 +37,10 @@ export const SITE_CONFIG = {
 
   // Seção de Contactos
   contact: {
+    email: "contato@primetornearia.com.br",
     phone: "(44) 99932-4635",
     phoneRaw: "44999324635",
     whatsapp: "5544999324635",
-    whatsappLink: "https://wa.me/5544999324635?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20site.",
     address: "Maringá, PR • Região Metropolitana",
     googleMapsLink: "https://goo.gl/maps/...",
   },

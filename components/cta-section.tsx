@@ -41,7 +41,7 @@ export function CTASection() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-scale-in" style={{ animationDelay: '0.4s' }}>
           <a
-            href={SITE_CONFIG.contact.whatsappLink}
+            href={SITE_CONFIG.hero.ctaLink}
             target="_blank"
             rel="noopener noreferrer"
           >

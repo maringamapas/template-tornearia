@@ -59,7 +59,7 @@ export function Header() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href={SITE_CONFIG.contact.whatsappLink}
+              href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -96,7 +96,7 @@ export function Header() {
               </a>
             ))}
             <a
-              href={SITE_CONFIG.contact.whatsappLink}
+              href={`https://wa.me/${SITE_CONFIG.contact.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4"
