@@ -126,9 +126,9 @@ export function ContactFooter() {
 
             {/* Bottom Bar */}
             <div className="border-t border-white/10 mt-10 pt-6 max-w-7xl mx-auto">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-white/50 text-xs">{SITE_CONFIG.footer.copyright}</p>
-                <div className="flex flex-col sm:flex-row items-center gap-6 text-xs">
+              <div className="flex flex-col items-center justify-center gap-4">
+                <p className="text-white/50 text-xs text-center">{SITE_CONFIG.footer.copyright}</p>
+                <div className="flex flex-col sm:flex-row items-center gap-6 text-xs justify-center">
                   <a href={SITE_CONFIG.footer.legal.privacy} className="text-white/50 hover:text-white/80 transition-colors">
                     Política de Privacidade
                   </a>
